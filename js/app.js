@@ -4,11 +4,23 @@
  * synthesized audio output, and custom overlays.
  */
 
+// ── Register Service Worker for PWA ──
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').then(reg => {
+      console.log('Service Worker registered successfully.', reg);
+    }).catch(err => {
+      console.warn('Service Worker registration failed.', err);
+    });
+  });
+}
+
+// ── 1. GLOBAL STATE & SOUND ENGINE ──
 window.CosmicOS = {
   settings: {
     particles: true
   },
-
+  
   // Audio system completely removed as per user request.
   // Method retained as a silent no-op to prevent exceptions from other modules.
   playAudio(type = 'click') {
@@ -20,7 +32,7 @@ window.CosmicOS = {
     const container = document.getElementById('toast-overlay');
     if (!container) return;
 
-    this.playAudio(type === 'error' ? 'alarm' : 'success');
+    this.playAudio(type === 'error' ? 'error' : 'success');
 
     const toast = document.createElement('div');
     toast.className = `toast ${type === 'error' ? 'error' : ''}`;

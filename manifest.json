@@ -1,0 +1,17 @@
+{
+  "name": "CosmicToolbox",
+  "short_name": "Toolbox",
+  "description": "All-in-One Cosmic Utility Suite",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#030712",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
