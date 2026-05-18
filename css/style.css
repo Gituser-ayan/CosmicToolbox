@@ -703,7 +703,7 @@ button:disabled {
 }
 
 @media screen and (max-width: 992px) {
-  body.sidebar-open::after {
+  body.sidebar-open .app-wrapper::after {
     content: '';
     position: fixed;
     inset: 0;
