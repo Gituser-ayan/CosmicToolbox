@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CosmicToolbox | All-in-One Cosmic Utility Suite</title>
+  <meta name="description" content="CosmicToolbox — a futuristic, space-themed collection of essential tools including a calculator, currency converter, unit converter, stopwatch, timer, world clock, password generator, and notes. All in one place.">
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  
+  <!-- External Libraries -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+</head>
+<body>
+
+  <!-- Cosmic Background Layers -->
+  <div id="cosmic-background">
+    <div class="nebula-layer"></div>
+    <div id="starfield"></div>
+    <div id="particles-container"></div>
+  </div>
+
+  <!-- Mobile Top Navigation Header -->
+  <header class="mobile-header">
+    <div class="sidebar-header" style="padding:0; border:none;">
+      <div class="cosmic-logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+          <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+          <line x1="3" y1="13" x2="21" y2="13"></line>
+        </svg>
+      </div>
+      <h1 style="font-size: 18px;">CosmicToolbox</h1>
+    </div>
+    <button class="menu-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </header>
+
+  <!-- Main Application Wrapper -->
+  <div class="app-wrapper">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="cosmic-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+            <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+            <line x1="3" y1="13" x2="21" y2="13"></line>
+          </svg>
+        </div>
+        <h1>CosmicToolbox</h1>
+      </div>
+      
+      <ul class="nav-links">
+        <li>
+          <a class="nav-item active" data-target="dashboard-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+              <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+              <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+              <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+            </svg>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="calculator-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="16" y1="14" x2="16" y2="14.01"></line>
+              <line x1="12" y1="14" x2="12" y2="14.01"></line>
+              <line x1="8" y1="14" x2="8" y2="14.01"></line>
+              <line x1="16" y1="18" x2="16" y2="18.01"></line>
+              <line x1="12" y1="18" x2="12" y2="18.01"></line>
+              <line x1="8" y1="18" x2="8" y2="18.01"></line>
+              <line x1="16" y1="10" x2="16" y2="10.01"></line>
+              <line x1="12" y1="10" x2="12" y2="10.01"></line>
+              <line x1="8" y1="10" x2="8" y2="10.01"></line>
+            </svg>
+            <span>Calculator</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="currency-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+              <path d="M12 18V6"></path>
+            </svg>
+            <span>Currency</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="unit-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3l4 4-4 4"></path>
+              <path d="M3 7h18"></path>
+              <path d="M7 21l-4-4 4-4"></path>
+              <path d="M21 17H3"></path>
+            </svg>
+            <span>Unit Converter</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="stopwatch-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="13" r="8"></circle>
+              <path d="M12 9v4l2 2"></path>
+              <path d="M10 2h4"></path>
+              <path d="M19 5l1-1"></path>
+            </svg>
+            <span>Stopwatch</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="timer-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+              <path d="M12 2v2"></path>
+            </svg>
+            <span>Timer</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="clock-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M2 12h20"></path>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span>World Clock</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="password-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>Password Generator</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="notes-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Notes</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="analyzer-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7V4h16v3"></path>
+              <path d="M9 20h6"></path>
+              <path d="M12 4v16"></path>
+            </svg>
+            <span>Text Analyzer</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="pomodoro-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2v4"></path>
+              <path d="M12 18v4"></path>
+              <path d="M4.93 4.93l2.83 2.83"></path>
+              <path d="M16.24 16.24l2.83 2.83"></path>
+            </svg>
+            <span>Pomodoro</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="color-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+            </svg>
+            <span>Color Converter</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="date-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Date Calculator</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="todo-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"></polyline>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg>
+            <span>To-Do List</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="qrcode-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="7" height="7"></rect>
+              <rect x="14" y="3" width="7" height="7"></rect>
+              <rect x="14" y="14" width="7" height="7"></rect>
+              <rect x="3" y="14" width="7" height="7"></rect>
+            </svg>
+            <span>QR Code</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="bmi-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+            </svg>
+            <span>BMI & Health</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="settings-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+            <span>Settings</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-item" data-target="about-view">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span>About</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <span id="system-status" style="display: flex; align-items: center; gap: 6px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+            <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+            <line x1="3" y1="13" x2="21" y2="13"></line>
+          </svg>
+          All Tools Ready
+        </span>
+      </div>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="main-content" id="main-content">
+      
+      <!-- Top Utility Header Bar -->
+      <div class="top-bar">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <button class="menu-toggle-btn desktop-only" id="desktop-menu-toggle" aria-label="Toggle navigation menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+          <div class="current-tool-title" id="top-bar-title">Home Dashboard</div>
+        </div>
+        <div class="time-banner" title="Current local time">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span class="live-time" id="top-bar-time">00:00:00</span>
+        </div>
+      </div>
+
+      <!-- ======================================== -->
+      <!-- 1. DASHBOARD VIEW                        -->
+      <!-- ======================================== -->
+      <section class="view-container active-view" id="dashboard-view">
+        <div class="welcome-banner glass-card" style="margin-bottom: 32px; position: relative; overflow: hidden; border-left: 4px solid var(--accent-cyan);">
+          <div style="position: relative; z-index: 2;">
+            <h2 class="section-heading" style="font-size: 28px;">Welcome to CosmicToolbox</h2>
+            <p class="section-subtitle" style="font-size: 16px; max-width: 600px; margin-bottom: 0;">
+              Your personal collection of everyday tools. Everything you need to stay organized and get things done, all in one place.
+            </p>
+          </div>
+          <!-- Absolute decoration graphic inside banner -->
+          <svg style="position: absolute; right: 10px; bottom: -40px; opacity: 0.12; width: 220px; height: 220px; transform: rotate(-10deg);" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="8" width="18" height="12" rx="2" ry="2"></rect>
+            <path d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"></path>
+            <line x1="3" y1="13" x2="21" y2="13"></line>
+          </svg>
+        </div>
+
+        <h3 class="section-heading" style="font-size: 18px; margin-bottom: 16px;">Quick Access Utility Array</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;">
+          <!-- Quick Card 1 -->
+          <div class="glass-card interactive quick-nav-btn" data-target="calculator-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: var(--accent-cyan); margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                  <line x1="8" y1="6" x2="16" y2="6"></line>
+                  <line x1="12" y1="14" x2="12" y2="14.01"></line>
+                  <line x1="8" y1="14" x2="8" y2="14.01"></line>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">Calculator</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Standard operations with scientific roadmap functionality.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: var(--accent-cyan); font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+
+          <!-- Quick Card 2 -->
+          <div class="glass-card interactive quick-nav-btn" data-target="currency-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: var(--accent-purple); margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                  <path d="M12 18V6"></path>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">Currency Converter</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Live global conversion index via open.er-api exchange.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: var(--accent-purple); font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+
+          <!-- Quick Card 3 -->
+          <div class="glass-card interactive quick-nav-btn" data-target="timer-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: #38bdf8; margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">Countdown Timer</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Custom durations and presets with immersive feedback rings.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: #38bdf8; font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+
+          <!-- Quick Card 4 -->
+          <div class="glass-card interactive quick-nav-btn" data-target="notes-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: #a855f7; margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">Cosmic Notes</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Persistent notes saved locally in your browser with auto-save.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: #a855f7; font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+
+          <!-- Quick Card 5: QR Code Generator -->
+          <div class="glass-card interactive quick-nav-btn" data-target="qrcode-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: #f43f5e; margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">QR Code Generator</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Instantly encode and export shareable high-fidelity optical markers.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: #f43f5e; font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+
+          <!-- Quick Card 6: BMI Calculator -->
+          <div class="glass-card interactive quick-nav-btn" data-target="bmi-view" style="cursor: pointer; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <div style="color: #10b981; margin-bottom: 12px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <h4 style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 6px;">Biological Metrics</h4>
+              <p style="font-size: 13px; color: var(--text-muted);">Analyze baseline body mass index and health categorizations.</p>
+            </div>
+            <div style="margin-top: 16px; font-size: 12px; color: #10b981; font-weight: 500; display: flex; align-items: center; gap: 4px;">
+              <span>INITIALIZE</span>
+              <span style="font-size: 16px;">→</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coming Soon Banner -->
+        <div style="margin-top: 32px; text-align: center; padding: 20px; border: 1px dashed var(--border-glass-hover); border-radius: 12px; background: rgba(15, 23, 42, 0.4);">
+          <div style="color: var(--text-muted); font-size: 14px; font-weight: 500; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--font-display);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4"></path>
+              <path d="M12 18v4"></path>
+              <path d="M4.93 4.93l2.83 2.83"></path>
+              <path d="M16.24 16.24l2.83 2.83"></path>
+              <path d="M2 12h4"></path>
+              <path d="M18 12h4"></path>
+              <path d="M4.93 19.07l2.83-2.83"></path>
+              <path d="M16.24 7.76l2.83-2.83"></path>
+            </svg>
+            <span style="letter-spacing: 0.5px;">More specialized tools coming soon...</span>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 2. CALCULATOR VIEW                       -->
+      <!-- ======================================== -->
+      <section class="view-container" id="calculator-view">
+        <div style="max-width: 440px; width: 100%; margin: 0 auto;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div>
+              <h2 class="section-heading" style="font-size: 22px; margin: 0;">Tactile Calculator</h2>
+              <p class="section-subtitle" style="margin: 0; font-size: 12px;">Standard floating point logic array</p>
+            </div>
+            <!-- Toggle for Advanced Sci-fi mode -->
+            <button class="cosmic-btn" id="calc-mode-toggle" style="padding: 6px 12px; font-size: 12px; border-radius: 6px;">
+              Scientific Mode: <span style="color: var(--accent-cyan);">OFF</span>
+            </button>
+          </div>
+
+          <!-- Main Calculator Card -->
+          <div class="glass-card" style="padding: 20px;">
+            <!-- Display Output Screen -->
+            <div style="background: rgba(3, 7, 18, 0.85); border: 1px solid var(--border-glass); border-radius: 12px; padding: 16px 20px; text-align: right; margin-bottom: 20px; box-shadow: inset 0 4px 12px rgba(0,0,0,0.6);">
+              <div id="calc-history" style="min-height: 20px; font-size: 13px; color: var(--text-muted); font-family: var(--font-mono); margin-bottom: 4px; word-break: break-all;"></div>
+              <div id="calc-display" style="font-size: 36px; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono); letter-spacing: 1px; word-break: break-all; transition: var(--transition-fast);">0</div>
+            </div>
+
+            <!-- Scientific Controls Tray (hidden initially) -->
+            <div id="scientific-tray" style="display: none; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--border-glass);">
+              <button class="cosmic-btn calc-btn sci-btn" data-action="sin" style="padding: 10px 0; font-size: 12px;">sin</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="cos" style="padding: 10px 0; font-size: 12px;">cos</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="tan" style="padding: 10px 0; font-size: 12px;">tan</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="sqrt" style="padding: 10px 0; font-size: 12px;">√x</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="log" style="padding: 10px 0; font-size: 12px;">log</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="pow" style="padding: 10px 0; font-size: 12px;">x^y</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="square" style="padding: 10px 0; font-size: 12px;">x²</button>
+              <button class="cosmic-btn calc-btn sci-btn" data-action="pi" style="padding: 10px 0; font-size: 12px;">π</button>
+            </div>
+
+            <!-- Standard Buttons Grid -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+              <button class="cosmic-btn calc-btn animated-press" data-action="clear" style="color: #f43f5e; padding: 14px 0; font-size: 16px;">AC</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="delete" style="color: #fbbf24; padding: 14px 0; font-size: 16px;">DEL</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="operator" data-value="%" style="color: var(--accent-purple); padding: 14px 0; font-size: 16px;">%</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="operator" data-value="/" style="color: var(--accent-cyan); padding: 14px 0; font-size: 18px;">÷</button>
+
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="7" style="padding: 14px 0; font-size: 18px;">7</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="8" style="padding: 14px 0; font-size: 18px;">8</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="9" style="padding: 14px 0; font-size: 18px;">9</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="operator" data-value="*" style="color: var(--accent-cyan); padding: 14px 0; font-size: 18px;">×</button>
+
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="4" style="padding: 14px 0; font-size: 18px;">4</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="5" style="padding: 14px 0; font-size: 18px;">5</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="6" style="padding: 14px 0; font-size: 18px;">6</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="operator" data-value="-" style="color: var(--accent-cyan); padding: 14px 0; font-size: 20px;">−</button>
+
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="1" style="padding: 14px 0; font-size: 18px;">1</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="2" style="padding: 14px 0; font-size: 18px;">2</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="3" style="padding: 14px 0; font-size: 18px;">3</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="operator" data-value="+" style="color: var(--accent-cyan); padding: 14px 0; font-size: 20px;">+</button>
+
+              <button class="cosmic-btn calc-btn animated-press" data-action="number" data-value="0" style="grid-column: span 2; padding: 14px 0; font-size: 18px;">0</button>
+              <button class="cosmic-btn calc-btn animated-press" data-action="decimal" data-value="." style="padding: 14px 0; font-size: 20px;">.</button>
+              <button class="cosmic-btn calc-btn primary animated-press" data-action="calculate" style="padding: 14px 0; font-size: 20px;">=</button>
+            </div>
+          </div>
+          <div style="text-align: center; margin-top: 12px; font-size: 11px; color: var(--text-muted);">
+            Supports keyboard key inputs (0-9, Operators, Enter, Backspace)
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 3. CURRENCY CONVERTER VIEW               -->
+      <!-- ======================================== -->
+      <section class="view-container" id="currency-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Live Currency Matrix</h2>
+          <p class="section-subtitle">Real-time global currency telemetry via exchangerate-api.com</p>
+
+          <div class="glass-card" style="position: relative;">
+            <!-- Loading Indicator Overlay -->
+            <div id="currency-loading" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(15,23,42,0.85); z-index: 10; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; backdrop-filter: blur(4px);">
+              <div class="spinner"></div>
+              <span style="font-size: 13px; color: var(--accent-cyan); font-weight: 500;">Fetching latest exchange rates...</span>
+            </div>
+
+            <!-- Error Readout Banner -->
+            <div id="currency-error" style="display: none; background: rgba(244, 63, 94, 0.1); border: 1px solid #f43f5e; padding: 12px; border-radius: 8px; margin-bottom: 16px; font-size: 13px; color: #fecdd3;">
+              Live rates unavailable. Using built-in fallback rates.
+            </div>
+
+            <!-- Amount Input -->
+            <div class="input-group">
+              <label class="input-label" for="curr-amount">Base Value</label>
+              <input type="number" id="curr-amount" class="cosmic-input" value="1" min="0" step="any" placeholder="Enter amount">
+            </div>
+
+            <!-- Selectors Row -->
+            <div class="currency-selectors-row">
+              <div class="input-group" style="margin: 0;">
+                <label class="input-label" for="curr-from">From</label>
+                <select id="curr-from" class="cosmic-select">
+                  <option value="USD">🇺🇸 USD - US Dollar</option>
+                  <option value="EUR">🇪🇺 EUR - Euro</option>
+                  <option value="GBP">🇬🇧 GBP - British Pound</option>
+                  <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                  <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                  <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                  <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                  <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                  <option value="INR">🇮🇳 INR - Indian Rupee</option>
+                  <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                </select>
+              </div>
+
+              <button class="cosmic-btn" id="curr-swap-btn" title="Swap currencies" style="padding: 12px; border-radius: 50%; align-self: flex-end; display: flex;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2">
+                  <polyline points="16 3 21 3 21 8"></polyline>
+                  <line x1="4" y1="20" x2="21" y2="3"></line>
+                  <polyline points="21 16 21 21 16 21"></polyline>
+                  <line x1="15" y1="15" x2="21" y2="21"></line>
+                  <line x1="4" y1="4" x2="9" y2="9"></line>
+                </svg>
+              </button>
+
+              <div class="input-group" style="margin: 0;">
+                <label class="input-label" for="curr-to">Target</label>
+                <select id="curr-to" class="cosmic-select">
+                  <option value="EUR">🇪🇺 EUR - Euro</option>
+                  <option value="USD">🇺🇸 USD - US Dollar</option>
+                  <option value="GBP">🇬🇧 GBP - British Pound</option>
+                  <option value="JPY">🇯🇵 JPY - Japanese Yen</option>
+                  <option value="AUD">🇦🇺 AUD - Australian Dollar</option>
+                  <option value="CAD">🇨🇦 CAD - Canadian Dollar</option>
+                  <option value="CHF">🇨🇭 CHF - Swiss Franc</option>
+                  <option value="CNY">🇨🇳 CNY - Chinese Yuan</option>
+                  <option value="INR" selected>🇮🇳 INR - Indian Rupee</option>
+                  <option value="SGD">🇸🇬 SGD - Singapore Dollar</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Conversion Result Output -->
+            <div style="background: rgba(3, 7, 18, 0.5); border: 1px solid var(--border-glass); padding: 16px; border-radius: 12px; text-align: center;">
+              <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;" id="curr-rate-info">1 USD = ... INR</div>
+              <div style="font-size: 28px; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-mono);" id="curr-result-display">0.00</div>
+            </div>
+
+            <div style="margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: var(--text-muted);">
+              <span id="curr-update-timestamp">Last Updated: Syncing...</span>
+              <button class="cosmic-btn" id="curr-refresh-btn" style="padding: 4px 8px; font-size: 11px; border:none; background:transparent; color: var(--accent-cyan);">Refresh Rates</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 4. UNIT CONVERTER VIEW                   -->
+      <!-- ======================================== -->
+      <section class="view-container" id="unit-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto; padding: 8px 16px;">
+          <h2 class="section-heading">Unit Convertor</h2>
+          <p class="section-subtitle">Real-time scalar value mapping across structural metrics</p>
+
+          <!-- Category Selection Tabs -->
+          <div style="display: flex; gap: 8px; overflow-x: auto; padding: 8px 8px 24px 8px; margin-bottom: 8px;">
+            <button class="cosmic-btn unit-tab-btn primary" data-category="length" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Length</button>
+            <button class="cosmic-btn unit-tab-btn" data-category="weight" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Weight</button>
+            <button class="cosmic-btn unit-tab-btn" data-category="temperature" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Temperature</button>
+            <button class="cosmic-btn unit-tab-btn" data-category="speed" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Speed</button>
+            <button class="cosmic-btn unit-tab-btn" data-category="storage" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Storage</button>
+            <button class="cosmic-btn unit-tab-btn" data-category="time" style="padding: 8px 16px; font-size: 13px; flex-shrink: 0;">Time</button>
+          </div>
+
+          <div class="glass-card">
+            <div class="unit-converter-row">
+              <!-- From Array -->
+              <div class="input-group">
+                <label class="input-label" for="unit-input-val">Source Magnitude</label>
+                <input type="number" id="unit-input-val" class="cosmic-input" value="1" step="any">
+                <select id="unit-from-select" class="cosmic-select" style="margin-top: 4px;"></select>
+              </div>
+
+              <!-- To Array -->
+              <div class="input-group">
+                <label class="input-label" for="unit-output-val">Converted Output</label>
+                <input type="number" id="unit-output-val" class="cosmic-input" readonly style="color: var(--accent-cyan); font-weight: 600; background: rgba(3,7,18,0.4);">
+                <select id="unit-to-select" class="cosmic-select" style="margin-top: 4px;"></select>
+              </div>
+            </div>
+
+            <div style="margin-top: 16px; font-size: 12px; color: var(--text-muted); text-align: center;">
+              Formula Evaluation: <span id="unit-formula-display" style="color: var(--text-main); font-family: var(--font-mono);">Linear Scale Multiplier</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 5. STOPWATCH VIEW                        -->
+      <!-- ======================================== -->
+      <section class="view-container" id="stopwatch-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto; text-align: center;">
+          <h2 class="section-heading">Stopwatch</h2>
+          <p class="section-subtitle">Millisecond-precision timer with lap tracking</p>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; align-items: center; padding: 32px 24px;">
+            <!-- Outer glowing SVG visual circle -->
+            <div style="position: relative; width: 220px; height: 220px; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+              <svg width="220" height="220" viewBox="0 0 220 220" style="position: absolute; top:0; left:0; transform: rotate(-90deg); overflow: visible;">
+                <circle cx="110" cy="110" r="100" fill="none" stroke="var(--border-glass)" stroke-width="6"></circle>
+                <circle id="stopwatch-ring" cx="110" cy="110" r="100" fill="none" stroke="var(--accent-cyan)" stroke-width="6" stroke-dasharray="628" stroke-dashoffset="628" stroke-linecap="round" style="transition: stroke-dashoffset 0.05s linear; filter: drop-shadow(0 0 8px var(--accent-cyan));"></circle>
+              </svg>
+
+              <!-- Readout string inside center -->
+              <div style="z-index: 2; display: flex; flex-direction: column; align-items: center;">
+                <div id="sw-main-time" style="font-family: var(--font-mono); font-size: 32px; font-weight: 700; color: var(--text-main); letter-spacing: 1px;">00:00:00</div>
+                <div id="sw-ms-time" style="font-family: var(--font-mono); font-size: 16px; color: var(--accent-cyan); font-weight: 500;">.000</div>
+              </div>
+            </div>
+
+            <!-- Controls Array -->
+            <div style="display: flex; gap: 12px; justify-content: center; width: 100%; margin-bottom: 24px;">
+              <button class="cosmic-btn primary" id="sw-start-btn" style="width: 100px;">Start</button>
+              <button class="cosmic-btn" id="sw-lap-btn" style="width: 100px;" disabled>Lap</button>
+              <button class="cosmic-btn" id="sw-reset-btn" style="width: 100px;">Reset</button>
+            </div>
+
+            <!-- Laps Ledger -->
+            <div style="width: 100%; text-align: left;">
+              <div style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid var(--border-glass); display: flex; justify-content: space-between;">
+                <span>Lap Marker</span>
+                <span>Split Delta</span>
+              </div>
+              <div id="sw-laps-container" style="max-height: 140px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; font-family: var(--font-mono); font-size: 13px;">
+                <div style="color: var(--text-muted); text-align: center; padding: 12px 0; font-family: var(--font-body); font-size: 12px;">No telemetry markers saved.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 6. TIMER VIEW                            -->
+      <!-- ======================================== -->
+      <section class="view-container" id="timer-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto; text-align: center;">
+          <h2 class="section-heading">Countdown Timer</h2>
+          <p class="section-subtitle">Set a duration, start counting, get an alarm when done</p>
+
+          <div class="glass-card" style="padding: 32px 24px;">
+            <!-- Presets shortcut bar -->
+            <div style="display: flex; gap: 8px; justify-content: center; margin-bottom: 24px;">
+              <button class="cosmic-btn timer-preset-btn" data-time="300" style="padding: 6px 12px; font-size: 12px;">5 Min</button>
+              <button class="cosmic-btn timer-preset-btn" data-time="1500" style="padding: 6px 12px; font-size: 12px;">25 Min</button>
+              <button class="cosmic-btn timer-preset-btn" data-time="3600" style="padding: 6px 12px; font-size: 12px;">1 Hour</button>
+            </div>
+
+            <!-- Immersive Circular Gauge -->
+            <div style="position: relative; width: 200px; height: 200px; margin: 0 auto 24px; display: flex; align-items: center; justify-content: center;">
+              <svg width="200" height="200" viewBox="0 0 200 200" style="position: absolute; top:0; left:0; transform: rotate(-90deg); overflow: visible;">
+                <circle cx="100" cy="100" r="90" fill="none" stroke="var(--border-glass)" stroke-width="8"></circle>
+                <circle id="timer-progress-ring" cx="100" cy="100" r="90" fill="none" stroke="#38bdf8" stroke-width="8" stroke-dasharray="565.48" stroke-dashoffset="0" stroke-linecap="round" style="transition: stroke-dashoffset 0.1s linear; filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));"></circle>
+              </svg>
+
+              <!-- Display countdown string -->
+              <div style="z-index: 2;">
+                <div id="timer-display" style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: var(--text-main);">05:00</div>
+              </div>
+            </div>
+
+            <!-- Custom Setup Input Container (visible when paused/stopped) -->
+            <div id="timer-setup-container" style="display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; align-items: center;">
+              <div style="display: flex; flex-direction: column; width: 64px;">
+                <label style="font-size: 10px; color: var(--text-muted);">MINUTES</label>
+                <input type="number" id="timer-input-m" class="cosmic-input" value="5" min="0" max="359" style="padding: 8px; text-align: center; font-family: var(--font-mono);">
+              </div>
+              <span style="font-weight: 700;">:</span>
+              <div style="display: flex; flex-direction: column; width: 64px;">
+                <label style="font-size: 10px; color: var(--text-muted);">SECONDS</label>
+                <input type="number" id="timer-input-s" class="cosmic-input" value="0" min="0" max="59" style="padding: 8px; text-align: center; font-family: var(--font-mono);">
+              </div>
+            </div>
+
+            <!-- Action Controls -->
+            <div style="display: flex; gap: 12px; justify-content: center;">
+              <button class="cosmic-btn primary" id="timer-start-btn" style="width: 110px;">Start</button>
+              <button class="cosmic-btn" id="timer-reset-btn" style="width: 110px;">Reset</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 7. CLOCK SYSTEM VIEW                     -->
+      <!-- ======================================== -->
+      <section class="view-container" id="clock-view">
+        <div style="max-width: 700px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">World Clock</h2>
+          <p class="section-subtitle">Your local time, UTC, and major cities around the world</p>
+
+          <!-- Core System Clocks -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px;">
+            <!-- Primary Local Clock -->
+            <div class="glass-card" style="border-left: 4px solid var(--accent-cyan); position: relative; overflow: hidden;">
+              <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; background: rgba(0, 245, 255, 0.1); color: var(--accent-cyan); padding: 2px 6px; border-radius: 4px; font-weight: 600;">PRIMARY</span>
+              <h3 style="font-family: var(--font-display); font-size: 15px; color: var(--text-muted); margin-bottom: 4px;">Your Local Time</h3>
+              <div id="clock-local-time" style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">--:--:--</div>
+              <div id="clock-local-date" style="font-size: 12px; color: var(--text-muted);">---</div>
+            </div>
+
+            <!-- Standard UTC Clock -->
+            <div class="glass-card" style="border-left: 4px solid var(--accent-purple); position: relative; overflow: hidden;">
+              <span style="position: absolute; top: 12px; right: 12px; font-size: 10px; background: rgba(139, 92, 246, 0.1); color: var(--accent-purple); padding: 2px 6px; border-radius: 4px; font-weight: 600;">STANDARD</span>
+              <h3 style="font-family: var(--font-display); font-size: 15px; color: var(--text-muted); margin-bottom: 4px;">Universal Coordinated (UTC)</h3>
+              <div id="clock-utc-time" style="font-family: var(--font-mono); font-size: 36px; font-weight: 700; color: var(--text-main); margin-bottom: 4px;">--:--:--</div>
+              <div id="clock-utc-date" style="font-size: 12px; color: var(--text-muted);">---</div>
+            </div>
+          </div>
+
+          <!-- Extra Global Hubs Array -->
+          <h3 class="section-heading" style="font-size: 18px; margin-bottom: 16px;">Major Cities</h3>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;" id="world-clocks-grid">
+            <!-- Node 1 -->
+            <div class="glass-card" style="padding: 16px;">
+              <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>🇺🇸 New York</span>
+                <span>EDT</span>
+              </div>
+              <div class="world-time-val" data-tz="America/New_York" style="font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--accent-cyan); margin-top: 8px;">--:--</div>
+            </div>
+
+            <!-- Node 2 -->
+            <div class="glass-card" style="padding: 16px;">
+              <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>🇬🇧 London</span>
+                <span>BST</span>
+              </div>
+              <div class="world-time-val" data-tz="Europe/London" style="font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--accent-cyan); margin-top: 8px;">--:--</div>
+            </div>
+
+            <!-- Node 3 -->
+            <div class="glass-card" style="padding: 16px;">
+              <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>🇯🇵 Tokyo</span>
+                <span>JST</span>
+              </div>
+              <div class="world-time-val" data-tz="Asia/Tokyo" style="font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--accent-cyan); margin-top: 8px;">--:--</div>
+            </div>
+
+            <!-- Node 4 -->
+            <div class="glass-card" style="padding: 16px;">
+              <div style="font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between;">
+                <span>🇦🇺 Sydney</span>
+                <span>AEST</span>
+              </div>
+              <div class="world-time-val" data-tz="Australia/Sydney" style="font-family: var(--font-mono); font-size: 22px; font-weight: 600; color: var(--accent-cyan); margin-top: 8px;">--:--</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 8. PASSWORD GENERATOR VIEW               -->
+      <!-- ======================================== -->
+      <section class="view-container" id="password-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Password Generator</h2>
+          <p class="section-subtitle">Generate strong, random passwords using cryptographic randomness</p>
+
+          <div class="glass-card">
+            <!-- Render Output Screen -->
+            <div style="display: flex; gap: 8px; margin-bottom: 20px;">
+              <input type="text" id="pwd-output" class="cosmic-input" readonly style="flex: 1; font-family: var(--font-mono); color: var(--accent-cyan); font-size: 16px; background: rgba(3,7,18,0.85); letter-spacing: 1px;" placeholder="Click Generate Password below...">
+              <button class="cosmic-btn primary" id="pwd-copy-btn" title="Copy to clipboard" style="padding: 0 16px;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Password Strength Bar -->
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-bottom: 6px;">
+                <span>Entropy Status Assessment</span>
+                <span id="pwd-strength-label" style="font-weight: 600; color: #fbbf24;">Medium</span>
+              </div>
+              <div style="height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; display: flex;">
+                <div id="pwd-strength-bar" style="width: 60%; background: #fbbf24; transition: var(--transition-normal);"></div>
+              </div>
+            </div>
+
+            <!-- Length Slider -->
+            <div class="input-group">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <label class="input-label" for="pwd-length">Key Length</label>
+                <span id="pwd-length-display" style="font-family: var(--font-mono); color: var(--accent-cyan); font-weight: 600; font-size: 16px;">16</span>
+              </div>
+              <input type="range" id="pwd-length" min="6" max="64" value="16" style="accent-color: var(--accent-cyan); cursor: pointer;">
+            </div>
+
+            <!-- Toggles Array -->
+            <div style="display: flex; flex-direction: column; gap: 12px; margin: 20px 0;">
+              <label style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 14px;">
+                <span>Include Uppercase Characters (A-Z)</span>
+                <input type="checkbox" id="pwd-upper" checked style="accent-color: var(--accent-cyan); width: 18px; height: 18px;">
+              </label>
+              <label style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 14px;">
+                <span>Include Lowercase Characters (a-z)</span>
+                <input type="checkbox" id="pwd-lower" checked style="accent-color: var(--accent-cyan); width: 18px; height: 18px;">
+              </label>
+              <label style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 14px;">
+                <span>Include Numeric Digits (0-9)</span>
+                <input type="checkbox" id="pwd-numbers" checked style="accent-color: var(--accent-cyan); width: 18px; height: 18px;">
+              </label>
+              <label style="display: flex; align-items: center; justify-content: space-between; cursor: pointer; font-size: 14px;">
+                <span>Include Cryptographic Symbols (&*#@)</span>
+                <input type="checkbox" id="pwd-symbols" checked style="accent-color: var(--accent-cyan); width: 18px; height: 18px;">
+              </label>
+            </div>
+
+            <!-- Generate Trigger -->
+            <button class="cosmic-btn primary" id="pwd-generate-btn" style="width: 100%; margin-top: 8px;">Generate Password</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 9. NOTES VIEW                            -->
+      <!-- ======================================== -->
+      <section class="view-container" id="notes-view">
+        <div style="max-width: 900px; width: 100%; margin: 0 auto; padding: 8px 16px;">
+          <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 24px;">
+            <div>
+              <h2 class="section-heading" style="margin: 0;">Notes</h2>
+              <p class="section-subtitle" style="margin: 0;">Jot down anything — saved automatically in your browser</p>
+            </div>
+            <button class="cosmic-btn primary" id="notes-create-btn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>New Note</span>
+            </button>
+          </div>
+
+
+          <!-- Search / Filter Input Bar -->
+          <div class="input-group" style="margin-bottom: 24px; position: relative;">
+            <svg style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; z-index: 1;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="notes-search-box" class="cosmic-input" placeholder="Search your notes..." style="padding-left: 40px;">
+          </div>
+
+          <!-- Active Note Creator/Editor Panel (Hidden Initially) -->
+          <div id="note-editor-card" class="glass-card" style="display: none; border-color: var(--accent-cyan); margin-bottom: 48px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <span style="font-size: 12px; color: var(--accent-cyan); font-weight: 600;">EDITING NOTE</span>
+              <span id="note-autosave-indicator" style="font-size: 11px; color: var(--text-muted);">Autosave ready...</span>
+            </div>
+            
+            <input type="hidden" id="note-active-id">
+            <input type="text" id="note-title-input" class="cosmic-input" placeholder="Note title" style="font-family: var(--font-display); font-size: 18px; font-weight: 600; margin-bottom: 12px;">
+            
+            <textarea id="note-body-input" class="cosmic-input" placeholder="Write anything you want to remember..." rows="5" style="resize: vertical; min-height: 100px; font-size: 14px; line-height: 1.6;"></textarea>
+
+            <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border-glass);">
+              <button class="cosmic-btn" id="note-cancel-btn" style="padding: 6px 14px; font-size: 13px;">Cancel</button>
+              <button class="cosmic-btn primary" id="note-save-btn" style="padding: 6px 14px; font-size: 13px;">Save Note</button>
+            </div>
+          </div>
+
+          <!-- Notes Card Grid Array -->
+          <div id="notes-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;">
+            <!-- Placeholder dynamically managed by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 10. TEXT ANALYZER VIEW                   -->
+      <!-- ======================================== -->
+      <section class="view-container" id="analyzer-view">
+        <div style="max-width: 800px; width: 100%; margin: 0 auto; padding: 8px 16px;">
+          <h2 class="section-heading">Text Analyzer</h2>
+          <p class="section-subtitle">Real-time metrics for text documents and fragments</p>
+          
+          <div class="glass-card" style="margin-bottom: 24px;">
+            <textarea id="analyzer-input" class="cosmic-input" style="min-height: 200px; resize: vertical; font-family: var(--font-body);" placeholder="Paste or type your text here to begin analysis..."></textarea>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;">
+            <div class="glass-card" style="text-align: center; padding: 16px;">
+              <h5 style="color: var(--text-muted); font-size: 13px; font-weight: 500; text-transform: uppercase;">Words</h5>
+              <div id="analyzer-words" style="font-size: 32px; font-weight: 600; color: var(--accent-cyan); margin-top: 8px;">0</div>
+            </div>
+            <div class="glass-card" style="text-align: center; padding: 16px;">
+              <h5 style="color: var(--text-muted); font-size: 13px; font-weight: 500; text-transform: uppercase;">Characters</h5>
+              <div id="analyzer-chars" style="font-size: 32px; font-weight: 600; color: var(--accent-purple); margin-top: 8px;">0</div>
+            </div>
+            <div class="glass-card" style="text-align: center; padding: 16px;">
+              <h5 style="color: var(--text-muted); font-size: 13px; font-weight: 500; text-transform: uppercase;">Sentences</h5>
+              <div id="analyzer-sentences" style="font-size: 32px; font-weight: 600; color: #38bdf8; margin-top: 8px;">0</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 11. POMODORO TRACKER VIEW                -->
+      <!-- ======================================== -->
+      <section class="view-container" id="pomodoro-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto; text-align: center;">
+          <h2 class="section-heading">Pomodoro Focus</h2>
+          <p class="section-subtitle">Structured work intervals for maximum productivity</p>
+          
+          <div class="glass-card" style="padding: 40px 20px; display: flex; flex-direction: column; align-items: center;">
+            <div id="pomo-mode-badge" style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; text-transform: uppercase; margin-bottom: 24px; border: 1px solid rgba(239, 68, 68, 0.4);">
+              Focus Session
+            </div>
+            
+            <div id="pomo-display" style="font-family: var(--font-mono); font-size: 72px; font-weight: 700; color: var(--text-main); margin-bottom: 32px; filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));">
+              25:00
+            </div>
+            
+            <div style="display: flex; gap: 16px;">
+              <button class="cosmic-btn primary" id="pomo-toggle-btn" style="width: 120px;">START</button>
+              <button class="cosmic-btn" id="pomo-reset-btn">RESET</button>
+            </div>
+            
+            <div style="margin-top: 32px; display: flex; gap: 8px; font-size: 14px; color: var(--text-muted);">
+              <span>Sessions Completed:</span>
+              <span id="pomo-counter" style="color: var(--accent-cyan); font-weight: 600;">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 12. COLOR CONVERTER VIEW                 -->
+      <!-- ======================================== -->
+      <section class="view-container" id="color-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Color Converter</h2>
+          <p class="section-subtitle">Bi-directional translation across color spaces</p>
+          
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 24px;">
+            <div id="color-preview" style="height: 120px; border-radius: 12px; background-color: #00f5ff; border: 1px solid var(--border-glass); box-shadow: 0 0 20px rgba(0, 245, 255, 0.2); transition: background-color 0.3s ease;"></div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="input-group">
+                <label class="input-label" for="color-hex">HEX Code</label>
+                <input type="text" id="color-hex" class="cosmic-input" value="#00f5ff" maxlength="7">
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="color-rgb">RGB Values</label>
+                <input type="text" id="color-rgb" class="cosmic-input" value="rgb(0, 245, 255)">
+              </div>
+            </div>
+            
+            <div class="input-group">
+              <label class="input-label" for="color-hsl">HSL Values (Output only)</label>
+              <input type="text" id="color-hsl" class="cosmic-input" value="hsl(182, 100%, 50%)" readonly style="background: rgba(3,7,18,0.4); color: var(--text-muted);">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 13. DATE CALCULATOR VIEW                 -->
+      <!-- ======================================== -->
+      <section class="view-container" id="date-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Date Calculator</h2>
+          <p class="section-subtitle">Compute absolute temporal differences</p>
+          
+          <div class="glass-card" style="margin-bottom: 20px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="input-group">
+                <label class="input-label" for="date-start">Start Date</label>
+                <input type="date" id="date-start" class="cosmic-input">
+              </div>
+              <div class="input-group">
+                <label class="input-label" for="date-end">End Date</label>
+                <input type="date" id="date-end" class="cosmic-input">
+              </div>
+            </div>
+          </div>
+          
+          <div class="glass-card" style="text-align: center; padding: 32px 20px;">
+            <h5 style="color: var(--text-muted); font-size: 13px; font-weight: 500; text-transform: uppercase; margin-bottom: 12px;">Temporal Difference</h5>
+            <div id="date-result-days" style="font-family: var(--font-display); font-size: 48px; font-weight: 700; color: var(--accent-cyan); line-height: 1.1;">0 Days</div>
+            <div id="date-result-breakdown" style="font-size: 15px; color: var(--text-muted); margin-top: 12px;">Select two dates to calculate.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 14. TO-DO LIST VIEW                      -->
+      <!-- ======================================== -->
+      <section class="view-container" id="todo-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Mission Checklist</h2>
+          <p class="section-subtitle">Structured task management with local persistence</p>
+          
+          <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+            <input type="text" id="todo-input" class="cosmic-input" placeholder="Enter a new objective..." style="flex: 1;">
+            <button class="cosmic-btn primary" id="todo-add-btn">Add Task</button>
+          </div>
+          
+          <div id="todo-list" style="display: flex; flex-direction: column; gap: 12px;">
+            <!-- Rendered by JS -->
+          </div>
+        </div>
+      </section>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 13. QR CODE GENERATOR VIEW               -->
+      <!-- ======================================== -->
+      <section class="view-container" id="qrcode-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">QR Code Generator</h2>
+          <p class="section-subtitle">Encode text or URLs into standard optical markers</p>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 20px;">
+            <div class="input-group" style="margin: 0;">
+              <label class="input-label" for="qr-input">Payload Data</label>
+              <input type="text" id="qr-input" class="cosmic-input" placeholder="Enter URL or text to encode...">
+            </div>
+
+            <div style="background: rgba(3, 7, 18, 0.5); border: 1px solid var(--border-glass); padding: 24px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 250px;">
+              <div id="qrcode-container" style="background: white; padding: 16px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); display: none;"></div>
+              <p id="qr-placeholder-text" style="color: var(--text-muted); font-size: 13px; text-align: center;">Awaiting payload input...</p>
+            </div>
+
+            <button class="cosmic-btn primary" id="qr-download-btn" style="width: 100%; justify-content: center;" disabled>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              Download SVG Matrix
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 14. BMI & HEALTH VIEW                    -->
+      <!-- ======================================== -->
+      <section class="view-container" id="bmi-view">
+        <div style="max-width: 500px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Biological Metrics</h2>
+          <p class="section-subtitle">Body Mass Index calculator and health categorizations</p>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-glass); padding-bottom: 16px;">
+              <span style="font-size: 14px; font-weight: 500;">Unit System</span>
+              <div style="display: flex; background: var(--bg-input); border-radius: 8px; padding: 4px; border: 1px solid var(--border-glass);">
+                <button class="cosmic-btn bmi-unit-toggle active" data-unit="metric" style="padding: 4px 12px; font-size: 12px; border: none; background: transparent;">Metric</button>
+                <button class="cosmic-btn bmi-unit-toggle" data-unit="imperial" style="padding: 4px 12px; font-size: 12px; border: none; background: transparent;">Imperial</button>
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+              <div class="input-group" style="margin: 0;">
+                <label class="input-label" for="bmi-height">Height (<span id="bmi-height-label">cm</span>)</label>
+                <input type="number" id="bmi-height" class="cosmic-input" placeholder="e.g. 175" min="0" step="any">
+              </div>
+              <div class="input-group" style="margin: 0;">
+                <label class="input-label" for="bmi-weight">Weight (<span id="bmi-weight-label">kg</span>)</label>
+                <input type="number" id="bmi-weight" class="cosmic-input" placeholder="e.g. 70" min="0" step="any">
+              </div>
+            </div>
+
+            <button class="cosmic-btn primary" id="bmi-calc-btn" style="width: 100%; justify-content: center;">
+              Calculate Metrics
+            </button>
+
+            <!-- BMI Result Display -->
+            <div id="bmi-result-card" style="background: rgba(3, 7, 18, 0.5); border: 1px solid var(--border-glass); padding: 20px; border-radius: 12px; text-align: center; display: none; flex-direction: column; gap: 16px;">
+              <div>
+                <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 4px;">Your BMI Score</div>
+                <div id="bmi-score-display" style="font-size: 42px; font-weight: 700; color: var(--accent-cyan); font-family: var(--font-display); line-height: 1;">00.0</div>
+                <div id="bmi-category-display" style="font-size: 16px; font-weight: 600; margin-top: 8px; color: var(--text-main);">Normal</div>
+              </div>
+
+              <!-- Visual Health Meter -->
+              <div style="position: relative; width: 100%; height: 8px; background: linear-gradient(90deg, #38bdf8 0%, #10b981 30%, #10b981 60%, #fbbf24 75%, #f43f5e 100%); border-radius: 4px; margin-top: 12px;">
+                <div id="bmi-meter-indicator" style="position: absolute; top: -6px; left: 0%; width: 4px; height: 20px; background: white; border-radius: 2px; box-shadow: 0 0 10px rgba(255,255,255,0.8); transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1); transform: translateX(-50%);"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); font-family: var(--font-mono); margin-top: -8px;">
+                <span>15</span>
+                <span>18.5</span>
+                <span>25</span>
+                <span>30</span>
+                <span>40</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 15. SETTINGS VIEW                        -->
+      <!-- ======================================== -->
+      <section class="view-container" id="settings-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">Settings</h2>
+          <p class="section-subtitle">Customise your CosmicToolbox experience</p>
+
+          <div class="glass-card" style="display: flex; flex-direction: column; gap: 24px;">
+
+            <!-- Setting Option 2 -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 16px; border-bottom: 1px solid var(--border-glass);">
+              <div>
+                <h4 style="font-family: var(--font-display); font-size: 15px; margin-bottom: 4px;">Cinematic Starfield Motion</h4>
+                <p style="font-size: 12px; color: var(--text-muted);">Compute background particle generation variables.</p>
+              </div>
+              <label style="cursor: pointer;">
+                <input type="checkbox" id="setting-particles-checkbox" checked style="accent-color: var(--accent-cyan); width: 20px; height: 20px;">
+              </label>
+            </div>
+
+            <!-- Setting Option 3 -->
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="font-family: var(--font-display); font-size: 15px; color: #f43f5e; margin-bottom: 4px;">Memory Subsystem Reset</h4>
+                <p style="font-size: 12px; color: var(--text-muted);">Clear saved local custom parameters and stored notes data.</p>
+              </div>
+              <button class="cosmic-btn" id="setting-clear-data-btn" style="color: #f43f5e; border-color: rgba(244, 63, 94, 0.3); padding: 8px 16px; font-size: 13px;">
+                Wipe Local Storage
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================== -->
+      <!-- 16. ABOUT VIEW                           -->
+      <!-- ======================================== -->
+      <section class="view-container" id="about-view">
+        <div style="max-width: 600px; width: 100%; margin: 0 auto;">
+          <h2 class="section-heading">About</h2>
+          <p class="section-subtitle">System details and technical specifications</p>
+          
+          <div style="display: flex; flex-direction: column; gap: 24px;">
+            <div class="glass-card">
+              <h4 style="font-family: var(--font-display); font-size: 16px; margin-bottom: 12px; color: var(--text-main);">Toolbox Details</h4>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: var(--text-muted);">
+                <li style="display: flex; justify-content: space-between;"><span>Built With</span><span style="color: var(--accent-cyan);">Vanilla HTML, CSS & JS</span></li>
+                <li style="display: flex; justify-content: space-between;"><span>UI Style</span><span style="color: var(--accent-cyan);">Glassmorphic Dark Theme</span></li>
+                <li style="display: flex; justify-content: space-between;"><span>Notes Storage</span><span style="color: var(--accent-cyan);">Browser LocalStorage</span></li>
+                <li style="display: flex; justify-content: space-between;"><span>Performance</span><span style="color: var(--accent-cyan);">60 FPS Optimized</span></li>
+              </ul>
+            </div>
+            
+            <div class="glass-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+              <div class="glow-pulse" style="width: 64px; height: 64px; border-radius: 50%; background: rgba(0, 245, 255, 0.1); border: 1px solid var(--accent-cyan); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 16px;">
+                🚀
+              </div>
+              <h5 style="font-family: var(--font-display); font-size: 16px; margin-bottom: 4px;">All Tools Loaded & Ready</h5>
+              <p style="font-size: 12px; color: var(--text-muted);">Pick a tool from the sidebar and get started.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- Global Custom Toast Notification Overlay -->
+  <div class="toast-overlay" id="toast-overlay"></div>
+
+  <!-- Modular Scripts Execution Logic -->
+  <script defer src="js/calculator.js"></script>
+  <script defer src="js/currency.js"></script>
+  <script defer src="js/unitConverter.js"></script>
+  <script defer src="js/stopwatch.js"></script>
+  <script defer src="js/timer.js"></script>
+  <script defer src="js/clock.js"></script>
+  <script defer src="js/password.js"></script>
+  <script defer src="js/notes.js"></script>
+  <script defer src="js/analyzer.js"></script>
+  <script defer src="js/pomodoro.js"></script>
+  <script defer src="js/colorConverter.js"></script>
+  <script defer src="js/dateCalc.js"></script>
+  <script defer src="js/todo.js"></script>
+  <script defer src="js/qrcode.js"></script>
+  <script defer src="js/bmi.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>

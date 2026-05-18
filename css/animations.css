@@ -1,0 +1,130 @@
+/* Animations & Motion Design System for CosmicToolbox */
+
+/* Basic Visibility Transitions */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Cosmic Nebula & Starfield Parallax */
+@keyframes nebula-drift {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-3%, 2%) rotate(3deg);
+  }
+  100% {
+    transform: translate(2%, -3%) rotate(-2deg);
+  }
+}
+
+/* Floating Particles */
+.particle {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float-particle linear infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--max-opacity, 0.8);
+  }
+  90% {
+    opacity: var(--max-opacity, 0.8);
+  }
+  100% {
+    transform: translateY(var(--move-y, -100px)) translateX(var(--move-x, 20px));
+    opacity: 0;
+  }
+}
+
+/* Floating UI Accents */
+.floating-element {
+  animation: float-ui 6s ease-in-out infinite alternate;
+}
+
+@keyframes float-ui {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Glowing Pulse Accents */
+.glow-pulse {
+  animation: pulse-glow 3s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 245, 255, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.6);
+  }
+}
+
+/* Progress Rings & Loading Spinners */
+@keyframes ring-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top-color: var(--accent-cyan);
+  border-radius: 50%;
+  animation: ring-rotate 1s linear infinite;
+}
+
+/* Toast Slide/Enter */
+@keyframes toast-enter {
+  0% {
+    opacity: 0;
+    transform: translateX(50px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Button & Card Micro-interactions */
+.animated-press {
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+.animated-press:active {
+  transform: scale(0.96);
+}
